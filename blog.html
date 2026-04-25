@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Ridaa Bhatti</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .blog-card {
+      background: var(--card);
+      padding: 2.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.25s;
+      cursor: pointer;
+      border: none;
+      text-align: left;
+      width: 100%;
+      font-family: 'DM Mono', monospace;
+    }
+    .blog-card:hover { background: rgba(168,85,247,0.06); }
+    .blog-card.featured { grid-column: 1 / -1; }
+    .blog-date { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .blog-card-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.75rem; color: var(--text); transition: color 0.2s; }
+    .blog-card:hover .blog-card-title { color: var(--accent-bright); }
+    .blog-card.featured .blog-card-title { font-size: 1.6rem; }
+    .blog-excerpt { font-size: 0.76rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .blog-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    .read-time { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .read-link { font-size: 0.65rem; color: var(--accent-bright); letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 0.3rem; transition: gap 0.2s; }
+    .blog-card:hover .read-link { gap: 0.5rem; }
+    .blog-tag { display: inline-block; padding: 0.2rem 0.6rem; border: 1px solid rgba(168,85,247,0.2); border-radius: 2px; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 1rem; background: var(--accent-dim); }
+
+    /* FULL POST */
+    .post-full { display: none; padding: 5rem 3rem; border-top: 1px solid var(--border); }
+    .post-full.active { display: block; }
+    .post-inner { display: grid; grid-template-columns: 1fr 280px; gap: 5rem; align-items: start; }
+    .post-body h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.5rem; }
+    .post-body h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; margin: 2.5rem 0 0.75rem; }
+    .post-body p { font-size: 0.83rem; color: var(--muted); line-height: 1.9; margin-bottom: 1rem; }
+    .post-body p strong { color: var(--text); font-weight: 500; }
+    .post-body blockquote { border-left: 2px solid var(--accent); padding: 0.85rem 1.25rem; background: var(--accent-dim); margin: 1.5rem 0; font-size: 0.83rem; color: var(--text); line-height: 1.7; font-style: italic; }
+    .post-meta { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .post-sidebar { position: sticky; top: 6rem; }
+    .sidebar-block { border: 1px solid var(--border); background: var(--card); padding: 1.5rem; margin-bottom: 1rem; }
+    .sidebar-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .sidebar-post-link { display: block; font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--muted); background: none; border: none; border-bottom: 1px solid var(--border); padding: 0.65rem 0; cursor: pointer; text-align: left; width: 100%; transition: color 0.2s; }
+    .sidebar-post-link:last-child { border-bottom: none; }
+    .sidebar-post-link:hover, .sidebar-post-link.active-link { color: var(--accent-bright); }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 2rem; transition: color 0.2s; font-family: 'DM Mono', monospace; }
+    .back-btn:hover { color: var(--accent-bright); }
+    code { background: var(--surface); padding: 0.1rem 0.4rem; font-size: 0.8rem; border: 1px solid var(--border); font-family: 'DM Mono', monospace; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ridaa Bhatti</a>
+  <div class="nav-status"><span class="status-dot"></span>Open to opportunities</div>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="section-label">Writing</div>
+  <h1>The<br><span style="color: var(--accent-bright);">Blog</span></h1>
+  <p style="margin-top: 1rem;">Thoughts on product, code, and building things that matter. Updated irregularly, but always honest.</p>
+</div>
+
+<section style="padding-bottom: 0;">
+  <div class="blog-grid" id="blogGrid">
+    <button class="blog-card featured" onclick="openPost('post1')">
+      <div class="blog-date">Aug 25, 2025</div>
+      <span class="blog-tag">Collaboration</span>
+      <div class="blog-card-title">Learning to Build Together: How My Latest Project Taught Me Git and Collaboration</div>
+      <p class="blog-excerpt">Building solo is comfortable. You move fast, make decisions without debate, and never deal with merge conflicts. Then you try to build with someone else — and everything slows down in the best possible way.</p>
+      <div class="blog-footer"><span class="read-time">2 min read</span><span class="read-link">Read more →</span></div>
+    </button>
+    <button class="blog-card" onclick="openPost('post2')">
+      <div class="blog-date">Jun 3, 2025</div>
+      <span class="blog-tag">Mindset</span>
+      <div class="blog-card-title">Coding as a Creative Outlet, Not Just a Skill</div>
+      <p class="blog-excerpt">At some point I stopped thinking of coding as a technical skill and started thinking of it as a medium — like painting or writing. That shift changed everything.</p>
+      <div class="blog-footer"><span class="read-time">2–3 min read</span><span class="read-link">Read more →</span></div>
+    </button>
+    <button class="blog-card" onclick="openPost('post3')">
+      <div class="blog-date">Apr 11, 2025</div>
+      <span class="blog-tag">Dev Life</span>
+      <div class="blog-card-title">Dark Mode vs. Light Mode in Coding: Which Really Works Best?</div>
+      <p class="blog-excerpt">Everyone has an opinion. Most people picked a side in their first week and never looked back. I spent a month switching deliberately to find out if it's rational or just habit.</p>
+      <div class="blog-footer"><span class="read-time">4 min read</span><span class="read-link">Read more →</span></div>
+    </button>
+  </div>
+</section>
+
+<!-- POST 1 -->
+<div class="post-full" id="post1">
+  <div class="post-inner">
+    <div class="post-body">
+      <button class="back-btn" onclick="closePost()">↑ Back to all posts</button>
+      <div class="post-meta"><span>Aug 25, 2025</span><span>·</span><span>2 min read</span><span>·</span><span class="blog-tag" style="margin:0;">Collaboration</span></div>
+      <h1>Learning to Build Together: How My Latest Project Taught Me Git and Collaboration</h1>
+      <p>Building solo is comfortable. You move fast, make decisions without debate, and never deal with merge conflicts. Then you try to build with someone else — and everything slows down.</p>
+      <p>But here's the thing — it slows down <strong>in the best possible way.</strong></p>
+      <h2>The first merge conflict</h2>
+      <p>I'd used Git before, but mostly as a save button with extra steps. Push to main, done. The first time a collaborator and I touched the same file and tried to merge — I broke the branch and spent forty minutes figuring out what <code>HEAD</code> actually meant.</p>
+      <p>That frustration was useful. It forced me to actually understand the tool instead of just using it. I now know what a detached HEAD state is. I never wanted to know that, but here we are.</p>
+      <h2>What collaboration actually teaches you</h2>
+      <p>When you're solo, your code only needs to make sense to you. The moment someone else reads it, you discover how many assumptions you've been making. <strong>Naming things properly, writing clear commit messages, leaving comments</strong> — these stop being nice-to-haves and become team requirements.</p>
+      <blockquote>"The best code review I ever got was someone asking: what does this function actually do? I didn't have a good answer."</blockquote>
+      <p>Working with someone else also forced me to think about the product from a different angle. My collaborator caught two UX decisions I'd made that seemed obvious to me but were confusing to anyone who wasn't living inside my head 24/7.</p>
+      <p>That's the thing about building in isolation — you stop noticing your own blind spots. A second set of eyes isn't just a code quality thing. It's a product quality thing.</p>
+      <h2>What I'd do differently</h2>
+      <p>We didn't set up branch conventions until two weeks in, which caused a lot of unnecessary friction. Now I'd start every collaborative project with 20 minutes on: how do we name branches, what's our PR process, and when do we merge vs. rebase. Small upfront investment, massive downstream payoff.</p>
+      <h2>The takeaway</h2>
+      <p>Solo projects teach you to build. Collaborative projects teach you to communicate. Both are skills. Both matter. If you've only done one — go do the other. The discomfort is the point.</p>
+    </div>
+    <aside class="post-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-label">All posts</div>
+        <button class="sidebar-post-link active-link" onclick="openPost('post1')">Learning to Build Together →</button>
+        <button class="sidebar-post-link" onclick="openPost('post2')">Coding as a Creative Outlet →</button>
+        <button class="sidebar-post-link" onclick="openPost('post3')">Dark Mode vs. Light Mode →</button>
+      </div>
+      <a href="contact.html" class="btn-ghost" style="width:100%;justify-content:center;">Get in touch →</a>
+    </aside>
+  </div>
+</div>
+
+<!-- POST 2 -->
+<div class="post-full" id="post2">
+  <div class="post-inner">
+    <div class="post-body">
+      <button class="back-btn" onclick="closePost()">↑ Back to all posts</button>
+      <div class="post-meta"><span>Jun 3, 2025</span><span>·</span><span>2–3 min read</span><span>·</span><span class="blog-tag" style="margin:0;">Mindset</span></div>
+      <h1>Coding as a Creative Outlet, Not Just a Skill</h1>
+      <p>There's a version of coding that feels like assembling IKEA furniture — you follow the instructions, something functional comes together, done. That's the version most people learn first. It's useful. It's not exciting.</p>
+      <p>Then at some point, something shifts. You stop following tutorials and start making decisions. You pick colors, you choose how a button feels when you click it, you decide what to name a variable in a way that makes future-you smile instead of cringe. That's when coding stops being a technical skill and starts being <strong>a creative medium.</strong></p>
+      <h2>The blank canvas moment</h2>
+      <p>The first time I built something with no spec — no tutorial, no instructions, just a problem I wanted to solve — was genuinely terrifying. There's no right answer to reach for. No rubric. Just: what do I want this to be?</p>
+      <p>That's the same feeling a painter has staring at a blank canvas, or a writer at an empty document. Most people hate it. I've learned to love it. That discomfort is where the interesting decisions live.</p>
+      <blockquote>"Every design decision is an expression of values. What you choose to show first, what you hide, what you make easy — that's all communication."</blockquote>
+      <h2>Constraints make it better</h2>
+      <p>The most creative work I've done has been under the tightest constraints. A specific user problem. A limited timeline. A technical limitation that forces you to find a smarter solution rather than a bigger one. Constraints are generative — they force you off the obvious path.</p>
+      <p>NoorTab was built in a weekend with a strict feature limit. BudgetBuddy had to work entirely offline. Those constraints shaped the design in ways I never would have found with unlimited time and scope.</p>
+      <h2>Why it matters for PM work</h2>
+      <p>Here's the thing that took me a while to connect: thinking about code as a creative medium made me a better product manager, not just a better developer. When you've made creative decisions under technical constraints yourself, you understand the trade-offs your engineers are navigating. You stop treating implementation as a black box and start engaging with it as a design space.</p>
+      <p>The best PMs I've learned from think this way. Not "can we build this?" but "what's the most elegant way to build this, and what does that elegance cost?"</p>
+      <h2>The point</h2>
+      <p>If you're learning to code and it feels mechanical, that's normal — it always does at first. But don't stop there. Find a problem you actually care about and build something for it without instructions. That's where it gets interesting.</p>
+    </div>
+    <aside class="post-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-label">All posts</div>
+        <button class="sidebar-post-link" onclick="openPost('post1')">Learning to Build Together →</button>
+        <button class="sidebar-post-link active-link" onclick="openPost('post2')">Coding as a Creative Outlet →</button>
+        <button class="sidebar-post-link" onclick="openPost('post3')">Dark Mode vs. Light Mode →</button>
+      </div>
+      <a href="contact.html" class="btn-ghost" style="width:100%;justify-content:center;">Get in touch →</a>
+    </aside>
+  </div>
+</div>
+
+<!-- POST 3 -->
+<div class="post-full" id="post3">
+  <div class="post-inner">
+    <div class="post-body">
+      <button class="back-btn" onclick="closePost()">↑ Back to all posts</button>
+      <div class="post-meta"><span>Apr 11, 2025</span><span>·</span><span>4 min read</span><span>·</span><span class="blog-tag" style="margin:0;">Dev Life</span></div>
+      <h1>Dark Mode vs. Light Mode in Coding: Which Really Works Best?</h1>
+      <p>Ask ten developers which they prefer and nine will say dark mode — then look at you like you just asked whether water is wet. The tenth uses light mode and has fully accepted they will be judged for it.</p>
+      <p>I spent a month deliberately switching between the two every week to figure out whether the preference is <strong>rational or just habit.</strong> Here's what I found.</p>
+      <h2>The case for dark mode (it's not just aesthetics)</h2>
+      <p>Dark mode genuinely reduces eye strain in low-light environments. If you're coding at night — which, let's be honest, is often — a dark background is significantly easier on your eyes than a bright white screen. The contrast between light text on a dark background also makes syntax highlighting pop in a way that feels easier to scan.</p>
+      <p>There's also the focus argument. A dark interface feels more immersive. Fewer visual distractions pulling your attention away from the code. This is partially psychological, but psychological effects on productivity are real.</p>
+      <blockquote>"Dark mode isn't about looking cool. It's about reducing the cognitive load of staring at a screen for eight hours."</blockquote>
+      <h2>The case for light mode (hear me out)</h2>
+      <p>Here's what surprised me: in bright environments — a coffee shop, a well-lit office, outside — light mode is actually easier to read. Dark text on white has better contrast in high ambient light conditions. Your screen doesn't have to fight the environment.</p>
+      <p>Light mode also tends to produce fewer color rendering issues. Some syntax highlighting themes look washed out on dark backgrounds, and certain color combinations that work beautifully in dark mode become hard to distinguish. Light mode gives you a more consistent rendering baseline.</p>
+      <p>And for reviewing documents, reading documentation, or doing design work — light mode tends to match how the output will actually look, which matters.</p>
+      <h2>What I actually found after a month</h2>
+      <p>Switching every week forced me to notice things I'd stopped noticing. The first two days of each switch felt slightly off — just habit recalibrating. By day three, I'd fully adjusted.</p>
+      <p>My conclusion: <strong>dark mode wins for coding sessions, light mode wins for everything else.</strong> Most modern editors and operating systems handle this well — you can auto-switch based on time of day or ambient light. That's what I do now and it's the actual answer.</p>
+      <p>The deeper finding: it matters far less than the energy spent debating it. Font size, line height, and a good monospace font had a bigger impact on my readability than mode ever did. That's probably the hill worth dying on.</p>
+      <h2>The actual recommendation</h2>
+      <p>Use dark mode as your default. Set up auto-switching if your OS supports it. Pick a font you actually like (I use Fira Code with ligatures). Stop arguing about it on the internet and go build something.</p>
+    </div>
+    <aside class="post-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-label">All posts</div>
+        <button class="sidebar-post-link" onclick="openPost('post1')">Learning to Build Together →</button>
+        <button class="sidebar-post-link" onclick="openPost('post2')">Coding as a Creative Outlet →</button>
+        <button class="sidebar-post-link active-link" onclick="openPost('post3')">Dark Mode vs. Light Mode →</button>
+      </div>
+      <a href="contact.html" class="btn-ghost" style="width:100%;justify-content:center;">Get in touch →</a>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Ridaa Bhatti</a>
+  <ul class="footer-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ridaa Bhatti</div>
+</footer>
+
+<script>
+  function openPost(id) {
+    document.querySelectorAll('.post-full').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function closePost() {
+    document.querySelectorAll('.post-full').forEach(p => p.classList.remove('active'));
+    document.getElementById('blogGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (window.location.hash) {
+    const id = window.location.hash.replace('#','');
+    if (document.getElementById(id)) openPost(id);
+  }
+</script>
+
+</body>
+</html>

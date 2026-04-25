@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Ridaa Bhatti</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      padding: 5rem 3rem;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-left h2 .italic {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent-bright);
+    }
+
+    .contact-left p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      max-width: 400px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: var(--card);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      border-bottom: 1px solid var(--border);
+    }
+    .social-link:last-child { border-bottom: none; }
+    .social-link:hover { background: rgba(168,85,247,0.06); }
+
+    .social-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .social-handle {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .social-arrow {
+      font-size: 0.8rem;
+      color: var(--accent-bright);
+      transition: transform 0.2s;
+    }
+    .social-link:hover .social-arrow { transform: translate(3px, -3px); }
+
+    /* FORM */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-input,
+    .form-textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+      width: 100%;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .form-textarea { min-height: 140px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .availability-box {
+      border: 1px solid rgba(168,85,247,0.2);
+      background: var(--accent-dim);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    .availability-text {
+      font-size: 0.75rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .availability-text strong {
+      font-weight: 500;
+      color: var(--accent-bright);
+    }
+
+    .success-msg {
+      display: none;
+      padding: 1rem 1.25rem;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      font-size: 0.78rem;
+      color: #4ade80;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ridaa Bhatti</a>
+  <div class="nav-status"><span class="status-dot"></span>Open to opportunities</div>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="section-label">Get in touch</div>
+  <h1>Let's<br><span style="color: var(--accent-bright);">Talk</span></h1>
+  <p style="margin-top: 1rem;">Whether you're looking for a technical PM, a collaborator, or just want to chat about product — I'm always up for a good conversation.</p>
+</div>
+
+<div class="contact-grid">
+
+  <!-- LEFT: INFO + SOCIALS -->
+  <div class="contact-left">
+    <div class="availability-box">
+      <div class="availability-dot"></div>
+      <div class="availability-text">
+        <strong>Currently open to opportunities.</strong><br>
+        PM, SWE, tech sales — open to any tech role, any setup.
+      </div>
+    </div>
+
+    <h2>Ready to build<br>something <span class="italic">great</span>?</h2>
+    <p>I'm based in Dallas, TX but I'm open to remote, hybrid, on-site, and relocation — wherever the right opportunity is. If you're building something cool and need someone who's technical, driven, and easy to work with, let's talk.</p>
+
+    <a href="mailto:bhattiridaa@gmail.com" style="display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--accent-bright); text-decoration: none; letter-spacing: -0.01em; border-bottom: 1px solid rgba(192,132,252,0.3); padding-bottom: 4px; transition: color 0.2s;">
+      bhattiridaa@gmail.com
+    </a>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/ridaabhatti/" target="_blank" rel="noopener" class="social-link">
+        <div>
+          <div class="social-name">LinkedIn</div>
+          <div class="social-handle">/in/ridaabhatti</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a href="https://github.com/ridaabhatti" target="_blank" rel="noopener" class="social-link">
+        <div>
+          <div class="social-name">GitHub</div>
+          <div class="social-handle">@ridaabhatti</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a href="mailto:bhattiridaa@gmail.com" class="social-link">
+        <div>
+          <div class="social-name">Email</div>
+          <div class="social-handle">bhattiridaa@gmail.com</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div>
+    <div style="font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem;">Send a message</div>
+
+    <form class="contact-form" action="https://formspree.io/f/xwvazlal" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="subject">What's this about?</label>
+        <select class="form-input" id="subject" name="subject" style="cursor: pointer; appearance: none; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b6b88' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 1rem center;">
+          <option value="" disabled selected>Select a topic</option>
+          <option value="pm-role">PM / Product Role</option>
+          <option value="collab">Collaboration / Project</option>
+          <option value="freelance">Freelance Work</option>
+          <option value="other">Just saying hi</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-textarea" id="message" name="message" placeholder="Tell me what you're working on..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary" style="align-self: flex-start;">Send message →</button>
+      <div class="success-msg" id="successMsg">✓ Message sent! I'll get back to you within 1–2 days.</div>
+    </form>
+
+    <div style="margin-top: 2rem; font-size: 0.68rem; color: var(--muted); line-height: 1.6;">
+      Prefer async? Email me directly at <a href="mailto:bhattiridaa@gmail.com" style="color: var(--accent-bright); text-decoration: none;">bhattiridaa@gmail.com</a>. I typically respond within 24–48 hours.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Ridaa Bhatti</a>
+  <ul class="footer-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ridaa Bhatti</div>
+</footer>
+
+</body>
+</html>

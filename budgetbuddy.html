@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy — Ridaa Bhatti</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .case-cover {
+      width: 100%;
+      aspect-ratio: 21/9;
+      background: linear-gradient(135deg, #0a1f18 0%, #0d3020 50%, #061510 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .case-cover::after {
+      content: 'BudgetBuddy';
+      position: absolute;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 6rem;
+      color: rgba(192,132,252,0.04);
+      letter-spacing: -0.04em;
+      right: 1rem;
+      bottom: -1rem;
+    }
+    .case-body {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      padding: 4rem 3rem;
+      align-items: start;
+    }
+    .case-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+    .meta-block {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .meta-value {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .meta-value a { color: var(--accent-bright); text-decoration: none; }
+    .meta-value a:hover { text-decoration: underline; }
+    .case-section { margin-bottom: 3.5rem; }
+    .case-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .case-section p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 0.85rem;
+    }
+    .case-section p strong { color: var(--text); font-weight: 500; }
+    .highlight-box {
+      border-left: 2px solid var(--accent);
+      padding: 1rem 1.5rem;
+      background: var(--accent-dim);
+      margin: 1.5rem 0;
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 1.5rem;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--accent-bright);
+      opacity: 0.4;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .step-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1.5rem;
+    }
+    .outcome-card { background: var(--card); padding: 1.5rem; }
+    .outcome-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+      color: var(--accent-bright);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .outcome-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; }
+    .nav-between {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .nav-between a {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .nav-between a:hover { color: var(--accent-bright); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ridaa Bhatti</a>
+  <div class="nav-status"><span class="status-dot"></span>Open to opportunities</div>
+  <ul class="nav-links">
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div style="padding: 4rem 3rem 0;">
+  <a href="work.html" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.2s;">← All projects</a>
+  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+    <span class="project-tag">Finance App</span>
+    <span class="project-tag" style="background: transparent; border-color: var(--border); color: var(--muted);">Full-Stack</span>
+  </div>
+  <h1 style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.035em; line-height: 1; margin-bottom: 1rem;">BudgetBuddy</h1>
+  <p style="font-size: 0.9rem; color: var(--muted); max-width: 560px; line-height: 1.7; padding-bottom: 2.5rem;">A personal finance tracker built from concept to launch — designed for clarity, built for real daily use.</p>
+</div>
+
+<div class="case-cover" style="padding:0;"><img src="images/budgetbuddy.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+
+<div class="case-body">
+  <div>
+
+    <div class="case-section">
+      <h2>The Problem</h2>
+      <p>Most personal finance apps are either <strong>bloated with features nobody uses</strong> or locked behind paywalls. For a first-time earner or student trying to actually track spending habits, the options were overwhelming or inaccessible.</p>
+      <p>BudgetBuddy was built to solve a simple problem: give someone a clean, fast way to log expenses, set budgets, and see where their money is actually going — without signing up, without subscriptions, without noise.</p>
+      <div class="highlight-box">
+        "Can we build a finance tracker that someone would actually open every day — not because they have to, but because it's genuinely useful and pleasant to use?"
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>My Role</h2>
+      <p>Solo 0→1 build. I wrote the product spec, made all architecture decisions, designed the UI in Figma, and built the full stack — Node.js REST API, MongoDB, and a React frontend with custom data visualizations.</p>
+      <p>This project sharpened my ability to <strong>make fast, defensible technical decisions</strong> without a team to consult — a core PM+eng skill.</p>
+    </div>
+
+    <div class="case-section">
+      <h2>Process</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Spec & Scope</div>
+            <div class="step-desc">Defined the MVP feature set: expense logging, category tagging, monthly budget limits, and a summary dashboard. Explicitly scoped OUT: bank integrations, recurring transactions, multi-user support.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Architecture Decisions</div>
+            <div class="step-desc">Chose MongoDB for flexible expense schema, Node/Express for the API layer, and React for the UI. Opted for JWT auth over OAuth to keep the auth flow simple for a solo project.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">UI Design (Figma)</div>
+            <div class="step-desc">Designed the dashboard, expense log, and budget views. Focused on data density — showing the most useful info without overwhelming. Used custom SVG charts rather than a library for full control.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Build & Deploy</div>
+            <div class="step-desc">Built API and frontend in parallel. Deployed backend to Railway, frontend to Vercel. Set up CI/CD with GitHub Actions for automatic deploys on main branch merges.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>Outcomes</h2>
+      <div class="outcome-grid">
+        <div class="outcome-card"><div class="outcome-num">✓</div><div class="outcome-label">Live and deployed</div></div>
+        <div class="outcome-card"><div class="outcome-num">REST</div><div class="outcome-label">Full API built from scratch</div></div>
+        <div class="outcome-card"><div class="outcome-num">CI/CD</div><div class="outcome-label">Automated deploy pipeline</div></div>
+        <div class="outcome-card"><div class="outcome-num">Solo</div><div class="outcome-label">End-to-end ownership</div></div>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>What I learned</h2>
+      <p>The most valuable lesson: <strong>scoping is a product skill, not a technical one.</strong> The features I cut were just as important as the features I built. Keeping BudgetBuddy focused meant I actually shipped it, instead of abandoning it halfway through feature creep.</p>
+      <p>I also learned that building your own data visualizations — while slower — gives you far more flexibility and forces you to understand your data model more deeply than plugging in a chart library.</p>
+    </div>
+
+  </div>
+
+  <aside class="case-sidebar">
+    <div class="meta-block">
+      <div class="meta-label">Year</div>
+      <div class="meta-value">2025</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Role</div>
+      <div class="meta-value">Product Owner<br>Full-Stack Developer<br>UX Designer</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Tech Stack</div>
+      <div class="meta-value">React · Node.js · Express<br>MongoDB · JWT Auth<br>Railway · Vercel · GitHub Actions</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Deliverables</div>
+      <div class="meta-value">Product Spec · Figma Designs<br>REST API · React App<br>CI/CD Pipeline</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">GitHub</div>
+      <div class="meta-value"><a href="#">View source →</a></div>
+    </div>
+    <a href="contact.html" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">Work together →</a>
+  </aside>
+</div>
+
+<div class="nav-between">
+  <a href="noortab.html">← Previous: NoorTab</a>
+  <a href="work.html">All projects →</a>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Ridaa Bhatti</a>
+  <ul class="footer-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ridaa Bhatti</div>
+</footer>
+
+</body>
+</html>

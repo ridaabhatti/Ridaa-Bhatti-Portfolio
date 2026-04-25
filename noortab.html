@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoorTab — Ridaa Bhatti</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .case-hero {
+      padding: 4rem 3rem 0;
+    }
+    .case-cover {
+      width: 100%;
+      aspect-ratio: 21/9;
+      background: linear-gradient(135deg, #1a1030 0%, #2d1060 50%, #1a0840 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .case-cover::after {
+      content: 'NoorTab';
+      position: absolute;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 8rem;
+      color: rgba(192,132,252,0.06);
+      letter-spacing: -0.04em;
+      right: 2rem;
+      bottom: -1rem;
+    }
+    .case-body {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      padding: 4rem 3rem;
+      align-items: start;
+    }
+    .case-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+    .meta-block {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .meta-value {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .meta-value a {
+      color: var(--accent-bright);
+      text-decoration: none;
+    }
+    .meta-value a:hover { text-decoration: underline; }
+    .case-section {
+      margin-bottom: 3.5rem;
+    }
+    .case-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .case-section p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 0.85rem;
+    }
+    .case-section p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .highlight-box {
+      border-left: 2px solid var(--accent);
+      padding: 1rem 1.5rem;
+      background: var(--accent-dim);
+      margin: 1.5rem 0;
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 1.5rem;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--accent-bright);
+      opacity: 0.4;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .step-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1.5rem;
+    }
+    .outcome-card {
+      background: var(--card);
+      padding: 1.5rem;
+    }
+    .outcome-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+      color: var(--accent-bright);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .outcome-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .nav-between {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .nav-between a {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .nav-between a:hover { color: var(--accent-bright); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ridaa Bhatti</a>
+  <div class="nav-status"><span class="status-dot"></span>Open to opportunities</div>
+  <ul class="nav-links">
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="case-hero">
+  <a href="work.html" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; margin: 2rem 0 1.5rem; transition: color 0.2s;">← All projects</a>
+  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+    <span class="project-tag">Chrome Extension</span>
+    <span class="project-tag" style="background: transparent; border-color: var(--border); color: var(--muted);">PM + Dev</span>
+  </div>
+  <h1 style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.035em; line-height: 1; margin-bottom: 1rem;">NoorTab</h1>
+  <p style="font-size: 0.9rem; color: var(--muted); max-width: 560px; line-height: 1.7; padding-bottom: 2.5rem;">A mindful new tab Chrome extension combining purpose and calm design — blending daily reminders, focus tools, and Islamic content into a meaningful browsing experience.</p>
+</div>
+
+<div class="case-cover" style="padding:0;"><img src="images/noortab.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+
+<div class="case-body">
+  <div class="case-main">
+
+    <div class="case-section">
+      <h2>The Problem</h2>
+      <p>Every time you open a new tab, you're presented with a blank screen or generic news feed — a missed opportunity to set intention for your browsing session. For Muslim users especially, there was no thoughtful, modern tool that wove together faith-based reminders with a genuinely usable new tab experience.</p>
+      <p>The existing options were either <strong>too generic</strong> (Google's default) or <strong>cluttered with noise</strong> (news extensions, productivity dashboards). There was a clear gap for something minimal, purposeful, and culturally resonant.</p>
+      <div class="highlight-box">
+        "How do we create a new tab experience that feels both meaningful and modern — one that respects the user's time without overwhelming them?"
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>My Role</h2>
+      <p>I owned this product end-to-end — acting as both <strong>PM and developer</strong>. That meant writing the PRD, defining the MVP feature set, designing the UX in Figma, and shipping the full React build to the Chrome Web Store.</p>
+      <p>I managed my own backlog, made scope trade-off decisions, and handled post-launch iteration based on user reviews and feedback.</p>
+    </div>
+
+    <div class="case-section">
+      <h2>Process</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Discovery & PRD</div>
+            <div class="step-desc">Interviewed target users, audited competitor extensions, and wrote a full PRD defining goals, non-goals, user stories, and success metrics. Kept scope ruthlessly tight for v1.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">UX Design (Figma)</div>
+            <div class="step-desc">Wireframed and high-fidelity prototyped in Figma. Ran informal usability tests with 5 target users to validate layout and information hierarchy before touching code.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Engineering & Build</div>
+            <div class="step-desc">Built with React + Chrome Extension Manifest v3. Integrated APIs for prayer times and Quran verses. Implemented local storage for user preferences and offline support.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Launch & Iteration</div>
+            <div class="step-desc">Submitted to Chrome Web Store. Monitored reviews and crash reports. Shipped two patch releases addressing user-reported bugs and added a top-requested feature in v1.1.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>Outcomes</h2>
+      <div class="outcome-grid">
+        <div class="outcome-card"><div class="outcome-num">✓</div><div class="outcome-label">Live on Chrome Web Store</div></div>
+        <div class="outcome-card"><div class="outcome-num">v1.1</div><div class="outcome-label">Iterated post-launch</div></div>
+        <div class="outcome-card"><div class="outcome-num">4.8★</div><div class="outcome-label">Average user rating</div></div>
+        <div class="outcome-card"><div class="outcome-num">Solo</div><div class="outcome-label">Full 0→1 ownership</div></div>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>What I learned</h2>
+      <p>Shipping solo forces brutal prioritization. Without a team to delegate to, every scope decision is a personal trade-off between quality and velocity. The biggest lesson: <strong>write the PRD before touching Figma, and touch Figma before touching code.</strong> The order matters more than you think.</p>
+      <p>I also learned how much post-launch work gets underestimated. The Chrome Web Store review process, handling 1-star reviews constructively, and managing update cadence all took meaningful time that wasn't in my original plan.</p>
+    </div>
+
+  </div>
+
+  <aside class="case-sidebar">
+    <div class="meta-block">
+      <div class="meta-label">Year</div>
+      <div class="meta-value">2025</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Role</div>
+      <div class="meta-value">Product Manager<br>Full-Stack Developer<br>UX Designer</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Tech Stack</div>
+      <div class="meta-value">React · Chrome Extension API<br>Manifest v3 · Figma<br>Local Storage · REST APIs</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Deliverables</div>
+      <div class="meta-value">PRD · Figma Prototype<br>Chrome Extension · v1.1 Release</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Live Link</div>
+      <div class="meta-value"><a href="#">View on Chrome Store →</a></div>
+    </div>
+    <a href="contact.html" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">Work together →</a>
+  </aside>
+</div>
+
+<div class="nav-between">
+  <a href="work.html">← All projects</a>
+  <a href="budgetbuddy.html">Next project →</a>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Ridaa Bhatti</a>
+  <ul class="footer-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ridaa Bhatti</div>
+</footer>
+
+</body>
+</html>
