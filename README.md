@@ -1,5 +1,4 @@
 ![Ridaa Bhatti](banner.png)
-# Ridaa Bhatti
  
 🌐 **[ridaabhatti.github.io/Ridaa-Bhatti-Portfolio](https://ridaabhatti.github.io/Ridaa-Bhatti-Portfolio)**
  
