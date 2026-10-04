@@ -566,3 +566,41 @@ h2.cta-title .italic {
   margin: 0 auto 2.5rem;
   line-height: 1.8;
 }
+
+/* Project-focused technical PM portfolio */
+:root { --muted: #a4a4bc; }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+.intro-copy { max-width:850px; color:var(--muted); font-size:.9rem; line-height:1.85; margin-bottom:1rem; }
+.case-body { display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:4rem; padding:4rem 3rem; max-width:1300px; margin:auto; }
+.case-section { padding:0; margin-bottom:2.5rem; }
+.case-section h2 { font-family:'Syne',sans-serif; font-size:1.4rem; margin-bottom:1rem; }
+.case-section p { font-size:.9rem; color:var(--muted); line-height:1.85; }
+.case-sidebar { position:sticky; top:6rem; align-self:start; }
+.meta-block { background:var(--card); padding:1.4rem; border:1px solid var(--border); margin-bottom:1rem; }
+.meta-label { color:var(--accent-bright); text-transform:uppercase; font-size:.65rem; letter-spacing:.1em; margin-bottom:.6rem; }
+.meta-value { font-size:.8rem; line-height:1.7; }
+.case-image { display:block; width:100%; height:auto; border:1px solid var(--border); }
+figcaption { color:var(--muted); font-size:.7rem; margin-top:.8rem; }
+.nav-between { display:flex; justify-content:space-between; gap:2rem; padding:2rem 3rem; border-top:1px solid var(--border); }
+.nav-between a { color:var(--accent-bright); font-size:.8rem; text-decoration:none; }
+.skip-link { position:absolute; left:1rem; top:-100px; z-index:200; background:var(--bg); padding:1rem; color:var(--text); }
+.skip-link:focus { top:1rem; }
+a:focus-visible,button:focus-visible { outline:2px solid var(--accent-bright); outline-offset:5px; }
+.projects-grid .project-card { display:flex; flex-direction:column; }
+.project-footer { margin-top:auto; }
+@media(max-width:800px) {
+ nav { padding:1rem 1.25rem; flex-wrap:wrap; gap:1rem; }
+ .nav-status { display:none; }
+ section,.page-hero { padding:3rem 1.25rem; }
+ .projects-grid,.caps-grid,.case-body { grid-template-columns:1fr; }
+ .case-body { padding:3rem 1.25rem; gap:1rem; }
+ .case-section { padding:0; }
+ .case-sidebar { position:static; }
+ .project-card { padding:1.5rem; }
+ .nav-between,footer { padding:1.5rem 1.25rem; flex-wrap:wrap; }
+ .contact-grid { grid-template-columns:1fr !important; padding:3rem 1.25rem !important; gap:3rem !important; }
+ .form-row { grid-template-columns:1fr !important; }
+ .cta-section { padding:3rem 1.25rem; }
+ h1 { overflow-wrap:anywhere; }
+}
+@media(prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} *,*::before,*::after {animation:none!important;transition:none!important;} }
