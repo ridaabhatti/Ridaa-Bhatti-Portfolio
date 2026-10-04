@@ -3,121 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Project Case Studies — Ridaa Bhatti technical product management portfolio.">
-  <title>Project Case Studies — Ridaa Bhatti</title>
+  <title>Projects — Ridaa Bhatti</title>
   <link rel="stylesheet" href="style.css">
+  <script src="motion.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="night-sky" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="nav-logo">Ridaa Bhatti</a>
-    <div class="nav-status">
-      <span class="status-dot"></span>
-      Open to technical PM opportunities
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">✧ Ridaa Bhatti</a>
+    <div class="nav-links">
+      <a href="work.html">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <ul class="nav-links">
-      <li><a href="work.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden>
+      Motion off
+    </button>
   </nav>
 
   <main id="main">
-    <section class="page-hero">
-      <div class="section-label">Selected work</div>
-      <h1>Project case studies</h1>
+    <header class="page-header wrap">
+      <p class="eyebrow">Selected work</p>
+      <h1>Projects</h1>
       <p>
-        Three DFW internship initiatives and an independent Chrome
-        extension, with a focus on my contributions and the product
-        work behind each experience.
+        Here’s what I worked on, the problems behind it,
+        and my part in the process.
       </p>
-    </section>
+    </header>
 
-    <section>
-      <div class="projects-grid">
-        <a href="dfw-project-health.html" class="project-card">
-          <div class="project-num">01 — Case study</div>
-          <span class="project-tag">DFW · Enterprise reporting</span>
-          <h3 class="project-name">TPMO Project Health Dashboard</h3>
-          <p class="project-desc">
-            Turning monthly project reporting into a centralized
-            Power BI view of project health, scope risk, and execution.
+    <section class="section wrap">
+      <div class="project-grid">
+        <a class="project-card" href="dfw-project-health.html">
+          <p class="eyebrow">DFW Airport · Reporting</p>
+          <h3>TPMO Project Health Dashboard</h3>
+          <p>
+            A Power BI dashboard that brings monthly project
+            health reporting into one place.
           </p>
-          <p class="project-desc">Discovery · Requirements · QA</p>
-          <div class="project-footer">
-            <span class="project-link">Read case study →</span>
-          </div>
+          <span class="card-link">Read case study →</span>
         </a>
 
-        <a href="dfw-aware.html" class="project-card">
-          <div class="project-num">02 — Case study</div>
-          <span class="project-tag">DFW · Operational workflows</span>
-          <h3 class="project-name">
-            AWARE Skylink Northstar &amp; Action Redesign
-          </h3>
-          <p class="project-desc">
-            Connecting train, track, and station context with a clearer
-            workflow for capturing actions, causes, and notes.
+        <a class="project-card" href="dfw-aware.html">
+          <p class="eyebrow">DFW Airport · Operations</p>
+          <h3>AWARE Skylink Redesign</h3>
+          <p>
+            Connecting train, track, and station information
+            with a clearer action-capture workflow.
           </p>
-          <p class="project-desc">
-            Workflow design · Data context · Stakeholder reviews
-          </p>
-          <div class="project-footer">
-            <span class="project-link">Read case study →</span>
-          </div>
+          <span class="card-link">Read case study →</span>
         </a>
 
-        <a href="dfw-rso.html" class="project-card">
-          <div class="project-num">03 — Case study</div>
-          <span class="project-tag">DFW · Dashboard enhancements</span>
-          <h3 class="project-name">RSO Job Tracker Dashboard</h3>
-          <p class="project-desc">
-            Contributing KPI tiles and enhancements to an operational
+        <a class="project-card" href="dfw-rso.html">
+          <p class="eyebrow">DFW Airport · Dashboard updates</p>
+          <h3>RSO Job Tracker Dashboard</h3>
+          <p>
+            KPI tiles and improvements to an existing
             job-tracking dashboard.
           </p>
-          <p class="project-desc">
-            Product enhancement · KPI visibility
-          </p>
-          <div class="project-footer">
-            <span class="project-link">Read case study →</span>
-          </div>
+          <span class="card-link">Read case study →</span>
         </a>
 
-        <a href="noortab.html" class="project-card">
-          <div class="project-num">04 — Case study</div>
-          <span class="project-tag">Independent · Chrome extension</span>
-          <h3 class="project-name">NoorTab</h3>
-          <p class="project-desc">
-            A mindful new-tab experience combining daily reminders,
+        <a class="project-card" href="noortab.html">
+          <p class="eyebrow">Independent project · Chrome extension</p>
+          <h3>NoorTab</h3>
+          <p>
+            A new-tab extension with daily reminders,
             focus tools, and Islamic content.
           </p>
-          <p class="project-desc">
-            Product scope · UX · Technical implementation
-          </p>
-          <div class="project-footer">
-            <span class="project-link">Read case study →</span>
-          </div>
+          <span class="card-link">Read case study →</span>
         </a>
       </div>
     </section>
 
-    <div class="cta-section">
-      <h2 class="cta-title">Let’s build useful products.</h2>
-      <p class="cta-desc">
-        Open to technical product management and technical
-        program management opportunities.
+    <section class="closing wrap">
+      <p class="eyebrow">Let’s connect</p>
+      <h2>Have a role or project in mind?</h2>
+      <p>
+        I’d be happy to talk about my work and hear
+        what you’re building.
       </p>
-      <a href="contact.html" class="btn-primary">Contact me →</a>
-    </div>
+      <a class="button primary" href="contact.html">Get in touch ↗</a>
+    </section>
   </main>
 
-  <footer>
-    <a href="index.html" class="footer-logo">Ridaa Bhatti</a>
-    <ul class="footer-links">
-      <li><a href="work.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="footer-copy">© 2026 Ridaa Bhatti</div>
+  <footer class="site-footer">
+    <span>© 2026 Ridaa Bhatti</span>
+    <div>
+      <a href="https://www.linkedin.com/in/ridaabhatti/">LinkedIn ↗</a>
+      <a href="https://github.com/ridaabhatti">GitHub ↗</a>
+    </div>
   </footer>
 </body>
 </html>
